@@ -46,11 +46,22 @@ btn[1].addEventListener("click", function(event) {
     
 });
 
-containerDiv.addEventListener("mouseover", function(event) {
+containerDiv.addEventListener("mousedown", function(event) {
+    containerDiv.addEventListener("mouseover", eventHandler);
+});
+
+containerDiv.addEventListener("mouseup", function(event) {
+    containerDiv.removeEventListener("mouseover", eventHandler);
+});
+
+function eventHandler(event) {
     if(event.target.id!="container"){
         document.querySelector(`#${event.target.id}`).style.backgroundColor= RGBcolor();
+        console.log(event.target.id);
     } 
-});
+}
+
+
 body.style.display="flex";
 body.style.flexDirection="column";
 body.style.alignItems="center";
