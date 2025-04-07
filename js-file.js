@@ -64,8 +64,8 @@ containerDiv.style.justifyContent="center";
 containerDiv.style.alignItems="center";
 containerDiv.style.padding = "0px";
 containerDiv.style.margin = "0px";
-containerDiv.style.width = "50vw";
-containerDiv.style.height = "50vw";
+containerDiv.style.width = "40vw";
+containerDiv.style.height = "40vw";
 
 for (let element of btn){
 
