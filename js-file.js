@@ -10,9 +10,9 @@ let divArray=[];
 // }
 btn[0].addEventListener("click", function(event) {
 
-    let numberOFGrid = Number(prompt("Please enter number of grid per side (keep it below 50)", 16));
-    while(numberOFGrid>50){
-        numberOFGrid = Number(prompt("Please choose a lower number (Keep it below 50)", 16));
+    let numberOFGrid = Number(prompt("Please enter number of grid per side (keep it below 100)", 16));
+    while(numberOFGrid>100){
+        numberOFGrid = Number(prompt("Please choose a lower number (Keep it below 100)", 16));
     }
     while (containerDiv.firstChild) {
         containerDiv.removeChild(containerDiv.lastChild);
@@ -39,7 +39,6 @@ btn[1].addEventListener("click", function(event) {
     for (let divs of divArray){
         let gridColor=divs.style.backgroundColor;
         if(gridColor!="white"){
-            
             divs.style.backgroundColor= "white";
         }
     }
@@ -57,7 +56,13 @@ containerDiv.addEventListener("mouseup", function(event) {
 function eventHandler(event) {
     if(event.target.id!="container"){
         document.querySelector(`#${event.target.id}`).style.backgroundColor= RGBcolor();
-        console.log(event.target.id);
+        opacityValue=Number(document.querySelector(`#${event.target.id}`).style.opacity)
+        if(opacityValue<1){
+            document.querySelector(`#${event.target.id}`).style.opacity= `${opacityValue+0.1}`;
+        }else{
+            document.querySelector(`#${event.target.id}`).style.opacity="1";
+
+        }
     } 
 }
 
@@ -69,9 +74,6 @@ body.style.justifyContent="center";
 body.style.padding="0px";
 body.style.margin="0px";
 
-window.addEventListener("resize", function(){
-    console.log(window.innerWidth, window.innerHeight);
-})
 
 if (window.innerWidth>window.innerHeight){
     sketchDimension="70vh";
