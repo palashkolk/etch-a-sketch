@@ -2,7 +2,7 @@ let body=document.querySelector("body");
 let containerDiv=document.querySelector("#container");
 let btn=document.querySelectorAll("button");
 let divArray=[];
-let boxWidth;
+// let boxWidth;
 // for (let i=0;i<256;i++){
 //     divArray.push(document.createElement("div"));
 //     containerDiv.appendChild(divArray[i]);
@@ -69,14 +69,25 @@ body.style.justifyContent="center";
 body.style.padding="0px";
 body.style.margin="0px";
 
+window.addEventListener("resize", function(){
+    console.log(window.innerWidth, window.innerHeight);
+})
+
+if (window.innerWidth>window.innerHeight){
+    sketchDimension="70vh";
+}else{
+    sketchDimension="70vw";
+}
+
+
 containerDiv.style.display="flex";
 containerDiv.style.flexWrap = "wrap";
 containerDiv.style.justifyContent="center";
 containerDiv.style.alignItems="center";
 containerDiv.style.padding = "0px";
 containerDiv.style.margin = "0px";
-containerDiv.style.width = "40vw";
-containerDiv.style.height = "40vw";
+containerDiv.style.width = sketchDimension;
+containerDiv.style.height = sketchDimension;
 
 for (let element of btn){
 
